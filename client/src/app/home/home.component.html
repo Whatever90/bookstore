@@ -1,0 +1,22 @@
+<div id="main">
+  <div class="col-sm-6 item" *ngFor='let b of books'>
+    <a href="#" [routerLink]="['book', b._id]">
+      <div class="row text-center" align="center">
+        <!-- <div class="col-md-5" align="center">
+              <img class="img-rounded img-responsive" src="{b.photo}" style="height: 142px">
+            </div> -->
+        <div class="col-md-12">
+          <h3>{{b.title}}</h3>
+          <h4>Author: {{b.author}}</h4>
+          <p class="description">{{b.description}}</p>
+          <p class="description" *ngIf="b.rating>=10">
+            <span style="color: green"> Rating {{b.rating}}</span>
+          </p>
+          <p class="description" *ngIf="b.rating<10">
+            <span style="color: red"> Rating {{b.rating}}</span>
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

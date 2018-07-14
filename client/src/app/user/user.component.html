@@ -1,0 +1,114 @@
+<div class="row" id="main" *ngIf="user!=null">
+
+      <div class="col-md-12 text-center">
+          <h2 class="text-info">{{user.alias}}</h2>
+          <span id="button" *ngIf="cur_user!=null">
+              <button type="button" class="btn btn-outline-danger" *ngIf="cur_user._id===user._id" (click)="Logout()">
+                Logout
+              </button>
+            </span>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6" id="contact-box">
+
+        <h2 class="text-center text-info">{{user.email}}</h2>
+        <p class="text-center text-info">Books viewed: {{user.booksVisited.length}}</p>
+        <div class="text-center text-info" *ngFor='let b of user.booksVisited'>
+          <a class="text-center text-info" href="#" [routerLink]="['/book', b.book_id]">{{b.book_title}} by {{b.book_author}}</a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 site-form">
+          <div class="tab-pane active in" id="newbook" *ngIf="cur_user!=null">
+              <form class="form-horizontal" NAME='bookForm' (submit)="newbook()" #bookForm="ngForm" *ngIf="cur_user._id===user._id">
+                <fieldset>
+                  <div id="legend">
+                    <legend>Add a new book</legend>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="email">Title</label>
+                    <div class="controls">
+                      <input type="text" id="title" name="title" placeholder="" required [(ngModel)]="book.title" #title='ngModel' minlength="4"
+                        class="input-xlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="password">Author</label>
+                    <div class="controls">
+                      <input type="text" id="author" name="author" name="author" required minlength="4" [(ngModel)]="book.author" #author='ngModel'
+                        class="input-xlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="password">Description</label>
+                    <div class="controls">
+                      <textarea rows="4" cols="50" type="text" id="description" name="description" name="description" required minlength="4" [(ngModel)]="book.description"
+                        #description='ngModel' class="input-xlarge"></textarea>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="password">Picture URL</label>
+                    <div class="controls">
+                      <input type="text" id="photo" name="photo" name="photo" minlength="4" [(ngModel)]="book.photo" #photo='ngModel' class="input-xlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button class="btn btn-success" type="submit" value="Login" [disabled]="bookForm.invalid">Create</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+      </div>
+      <div class="clearfix"></div>
+  </div>
+
+  <!-- <div *ngIf="user!=null">
+    <h1>{{user.alias}}</h1>
+    <h2>{{user.email}}</h2>
+    <p>Books viewed: {{user.booksVisited.length}}</p>
+    <div *ngFor='let b of user.booksVisited'>
+      <a href="#" [routerLink]="['/book', b.book_id]">{{b.book_title}} by {{b.book_author}}</a>
+    </div>
+  </div>
+  <div class="tab-pane active in" id="newbook" *ngIf="cur_user!=null">
+    <form class="form-horizontal" NAME='bookForm' (submit)="newbook()" #bookForm="ngForm" *ngIf="cur_user._id===user._id">
+      <fieldset>
+        <div id="legend">
+          <legend>Add a new book</legend>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="email">Title</label>
+          <div class="controls">
+            <input type="text" id="title" name="title" placeholder="" required [(ngModel)]="book.title" #title='ngModel' minlength="4"
+              class="input-xlarge">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Author</label>
+          <div class="controls">
+            <input type="text" id="author" name="author" name="author" required minlength="4" [(ngModel)]="book.author" #author='ngModel'
+              class="input-xlarge">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Description</label>
+          <div class="controls">
+            <textarea rows="4" cols="50" type="text" id="description" name="description" name="description" required minlength="4" [(ngModel)]="book.description"
+              #description='ngModel' class="input-xlarge"></textarea>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Picture URL</label>
+          <div class="controls">
+            <input type="text" id="photo" name="photo" name="photo" minlength="4" [(ngModel)]="book.photo" #photo='ngModel' class="input-xlarge">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button class="btn btn-success" type="submit" value="Login" [disabled]="bookForm.invalid">Create</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div> -->
+

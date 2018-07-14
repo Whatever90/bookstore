@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="" id="loginModal">
+        <div class="modal-header">
+          <h3>Have an Account?</h3>
+        </div>
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a (click)="log()" data-toggle="tab">Login</a>
+          </li>
+          <li class="active">
+            <a (click)="reg()" data-toggle="tab">Create Account</a>
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <!-- add a button -->
+
+          <div class="tab-pane active in" id="login" *ngIf='logreg==="log"'>
+            <form class="form-horizontal" NAME='loginForm' (submit)="login()" #loginForm="ngForm">
+              <fieldset>
+                <div id="legend">
+                  <legend class="">Login</legend>
+                </div>
+                <div class="control-group">
+                  <!-- Email -->
+                  <label class="control-label" for="email">Email</label>
+                  <div class="controls">
+                    <input type="text" id="email" name="login_email" placeholder="" required [(ngModel)]="loginUser.email" #login_email='ngModel'
+                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" minlength="4" class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Password-->
+                  <label class="control-label" for="password">Password</label>
+                  <div class="controls">
+                    <input type="password" id="password" name="password" name="login_password" required minlength="4" [(ngModel)]="loginUser.password"
+                      #login_password='ngModel' class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Button -->
+                  <div class="controls">
+                    <button class="btn btn-success" type="submit" value="Login" [disabled]="loginForm.invalid">Login</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+          <div class="tab-pane active in" id="login" *ngIf='logreg==="reg"'>
+            <form class="form-horizontal" name='regForm' (submit)="register()" #regForm="ngForm">
+              <fieldset>
+                <div id="legend">
+                  <legend class="">Register</legend>
+                </div>
+                <div class="control-group">
+                  <!-- Username -->
+                  <label class="control-label" for="username">Alias</label>
+                  <div class="controls">
+                    <input type="text" id="alias" name="alias" required [(ngModel)]="user.alias" #alias='ngModel' minlength="2" placeholder=""
+                      class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Password-->
+                  <label class="control-label" for="password">Email</label>
+                  <div class="controls">
+                    <input type="text" id="email" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required [(ngModel)]="user.email" #email='ngModel' minlength="2" placeholder="" class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Password-->
+                  <label class="control-label" for="password">Password</label>
+                  <div class="controls">
+                    <input type="password" id="password" name="password" required [(ngModel)]="user.password" #password='ngModel' minlength="4" placeholder="" class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Password-->
+                  <label class="control-label" for="password">Confirm Password</label>
+                  <div class="controls">
+                    <input type="password" id="cpassword" name="cpassword" required [(ngModel)]="user.con_password" #cpassword='ngModel' minlength="4" placeholder="" class="input-xlarge">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <!-- Button -->
+                  <div class="controls">
+                    <button class="btn btn-success" type="submit" value="Login" [disabled]="regForm.invalid || user.password !== user.con_password">Register</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,20 @@
+<div id="main" class="col-md-12 text-center">
+  <div *ngIf="book!=null">
+    <h1>{{book.title}}</h1>
+    <p>by {{book.author}}</p>
+    <p>Added by
+      <a href="#" [routerLink]="['/user', book.creater]">Person</a>
+    </p>
+    <p>{{book.description}}</p>
+    <div>
+      <span *ngIf="cur_user!=null">
+        <button class="btn btn-outline-primary" *ngIf="!book.raters.includes(cur_user._id)" (click)="like()">
+          Like!
+        </button>
+        <p *ngIf="book.raters.includes(cur_user._id)" style="color: green">You like this book!</p>
+      </span>
+
+      <p>Rating: {{book.rating}}</p>
+    </div>
+  </div>
+</div>

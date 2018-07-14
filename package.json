@@ -1,0 +1,29 @@
+{
+  "name": "qwerty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server",
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.9",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-beta.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-socket.io-session": "^1.3.2",
+    "imdb-api": "^3.1.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.10.8",
+    "omdb": "^0.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.2.18"
+  }
+}
